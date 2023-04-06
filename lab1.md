@@ -31,17 +31,22 @@ it for privacy.* It should then pull up a page confirming that you're logged in.
 and it closes me out.
 
 When it worked:
+
 ![FunctioningRemoteLogin](lab1_workingremotelogin.jpg)
 
 Now when it doesn't:
+
 ![ProblemLoggingInRemotely](lab1_problemremotelogin.jpg)
 
 **Trying Some Commands**
 
 During the lab, I tried figuring out what directory I was in by doing pwd. Then I found that if I went to the outer folder (..), I could see all the usernames for other students. I tried opening another random student's folder and happily discovered that I don't have permissions for that.
+
 ![MessingWithCommands](lab1_commands.jpg)
 
-Self Reminder of What Each Command Means
+---
+
+Self Reminder of What Each Command Means:
 ```
 cd (change directory)
 .. (outer folder)
