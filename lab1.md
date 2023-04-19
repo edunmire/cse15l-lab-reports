@@ -9,6 +9,8 @@ Date: 4/10/2023
 I did not install VScode during the lab, since I had already installed it in a previous course.
 
 If you need to install VScode, go to [VScode](https://code.visualstudio.com/) and hit the download button that matches your device specifications. Then open the folder that is downloaded and follow the steps that allow you to install the software.
+> A little fun side note:
+> If you want to try the new beta features sooner, download the insiders build in addition to the stable build. It gets more updates, but less guarantees of functionality. You can download both so that if something doesn't work in the insider build you can switch back to the stable build.
 
 When opening VScode, the page that should appear will look like the image below.
 
