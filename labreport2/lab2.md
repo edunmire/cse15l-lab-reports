@@ -48,14 +48,14 @@ class StringServer {
 }
 ```
 
-*insert screenshot 1*
+![Screenshot 1](lab2_p1command1.jpg)
 
 When `add-message?s=Hi Again` is entered as a request, the handleRequest method in the Handler class is called. The value for the `url` parameter is the entire url.
 Since the path for the url is not just a slash, the program checks if the url path is `/add-message` (which it is) and then will run the if-statement. Inside the if-statement,
 the query gets split at the equals sign into an array containing two elements (one is s and the other is the inputted string). It will then add the inputted string to the
 running string with an additional new line (`/n`) at the end and then output it as the return value.
 
-*insert screenshot 2*
+![Screenshot 2](lab2_p1command2.jpg)
 
 Similar to previous example, `add-message?s=How are you?` is the request, which alters the `url` parameter. Though the path will remain the same, the query changes from `s=Hi Again`
 to `s=How are you?`. Calling the handleRequest method again, this time it will run through the same if-statements but will concatanate the string "How are you?" onto the previous
