@@ -48,6 +48,8 @@ class StringServer {
 }
 ```
 
+---
+
 ![Screenshot 1](lab2_p1command1.jpg)
 
 When `add-message?s=Hi Again` is entered as a request, the handleRequest method in the Handler class is called. The value for the `url` parameter is the entire url.
@@ -55,8 +57,62 @@ Since the path for the url is not just a slash, the program checks if the url pa
 the query gets split at the equals sign into an array containing two elements (one is s and the other is the inputted string). It will then add the inputted string to the
 running string with an additional new line (`/n`) at the end and then output it as the return value.
 
+---
+
 ![Screenshot 2](lab2_p1command2.jpg)
 
 Similar to previous example, `add-message?s=How are you?` is the request, which alters the `url` parameter. Though the path will remain the same, the query changes from `s=Hi Again`
 to `s=How are you?`. Calling the handleRequest method again, this time it will run through the same if-statements but will concatanate the string "How are you?" onto the previous
 string. Now str will contain "Hello\nHi Again\nHow are you?\n" which will get output as the return value to the handleRequest method.
+
+**Part 2**
+
+I chose to examine the method *reversed()* in the ArrayExamples file.
+
+A failure inducing test was
+
+```@Test
+  public void testReversed2() {
+    int[] input = {0,1,2,3,4};
+    assertArrayEquals(new int[]{4,3,2,1,0}, ArrayExamples.reversed(input));
+  }
+```
+
+A test that did not produce a failure was
+
+```@Test
+  public void testReversed_OneVal() {
+    int[] input = {0};
+    assertArrayEquals(new int[]{0}, ArrayExamples.reversed(input));
+  }
+```
+
+The symptom ended up being that, at the first element of the array, the value ended up being 0 when it should have been 4 (as seen in the screeenshot below).
+
+![Screenshot 3](lab2_p2testfailure.jpg)
+
+Buggy code:
+
+```static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = newArray[arr.length - i - 1];
+    }
+    return arr;
+  }
+```
+
+Functional code:
+
+```// Returns a *new* array with all the elements of the input array in reversed
+  // order
+  static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      newArray[i] = arr[arr.length - i - 1];
+    }
+    return newArray;
+  }
+```
+
+Flipping which array was getting updated prevented all of `arr`'s values from being overwritten by the null values in the `newArray`. This change allows `arr`'s values to be transferred to `newArray` in reverse order, like the method is intended to do. Also, the method is supposed to output a new array, not the inputted array. This means that the return value had to be changed from `arr` to `newArray` in the last line of code.
