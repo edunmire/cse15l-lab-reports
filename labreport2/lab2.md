@@ -9,7 +9,8 @@ Date: 4/20/23
 **Part 1**
 
 The Code For StringServer
-```import java.io.IOException;
+```
+import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 
@@ -71,7 +72,8 @@ I chose to examine the method *reversed()* in the ArrayExamples file.
 
 A failure inducing test was
 
-```@Test
+```
+@Test
   public void testReversed2() {
     int[] input = {0,1,2,3,4};
     assertArrayEquals(new int[]{4,3,2,1,0}, ArrayExamples.reversed(input));
@@ -80,7 +82,8 @@ A failure inducing test was
 
 A test that did not produce a failure was
 
-```@Test
+```
+@Test
   public void testReversed_OneVal() {
     int[] input = {0};
     assertArrayEquals(new int[]{0}, ArrayExamples.reversed(input));
@@ -93,7 +96,8 @@ The symptom ended up being that, at the first element of the array, the value en
 
 Buggy code:
 
-```static int[] reversed(int[] arr) {
+```
+static int[] reversed(int[] arr) {
     int[] newArray = new int[arr.length];
     for(int i = 0; i < arr.length; i += 1) {
       arr[i] = newArray[arr.length - i - 1];
@@ -104,8 +108,9 @@ Buggy code:
 
 Functional code:
 
-```// Returns a *new* array with all the elements of the input array in reversed
-  // order
+```
+// Returns a *new* array with all the elements of the input array in reversed
+// order
   static int[] reversed(int[] arr) {
     int[] newArray = new int[arr.length];
     for(int i = 0; i < arr.length; i += 1) {
@@ -116,3 +121,7 @@ Functional code:
 ```
 
 Flipping which array was getting updated prevented all of `arr`'s values from being overwritten by the null values in the `newArray`. This change allows `arr`'s values to be transferred to `newArray` in reverse order, like the method is intended to do. Also, the method is supposed to output a new array, not the inputted array. This means that the return value had to be changed from `arr` to `newArray` in the last line of code.
+
+**Part 3**
+
+Before taking this class, I did not understand at all how URLs worked. The extent of my knowledge was that they were unique to a certain location and that they could be shared between people so that everyone can find what they need to. It is very interesting to learn the different parts to a URL (such as the domain, path, query, etc.) and that the different parts work similarly to commands that are unique to a domain. It makes me wonder why some URLs are so much longer than others and what all that text provides in terms of information about the page and how much of it is information about the person visiting the page.
