@@ -86,16 +86,31 @@ $ grep -v "a" plos/pmed.0010051.txt
 ```
 * Example 2
 ```
-$ find plos/*.txt > plos-files.txt
-$ grep -c "plos/pmed.*.txt" plos-files.txt
-150
+$ grep -c -v "plos/pmed.*.txt" plos-files.txt        
+102
 ```
 
-This flag is useful for determining how many occurences of a certain string pattern exist.
-In Example 1, this was useful to find how many times a certain word appeared.
-In Example 2, the flag could be used on a text file containing file names to determine how many
-files with a certain name appeared.
+This flag is useful for finding lines that do not contain the string, which possibly could be a work-around for ignoring error messages. Example 1 shows a basic use of the flag, and it's interesting to note that `grep -v` will include all empty lines in the output (which is why there is so much blank space in the output). Example 2 demonstrates how to using `-c` and `-v` together can provide a count of how many lines (or files in this case) do not follow the pattern of the string.
 
 *4. Flag `-i`*
 
+The `-i` flag allows grep to not be case sensitive.
+* Example 1
+```
+$ grep -c "H" plos/pmed.0010051.txt
+11
+$ grep -c -i "H" plos/pmed.0010051.txt
+83
+```
+* Example 2
+```
+$ find */*/*.txt > technical-files.txt
+$ grep -i -c "Media/l" technical-files.txt
+19
+$ grep -c "Media/l" technical-files.txt
+1
+```
 
+This flag is useful for determining finding all strings that match, ignoring differences in upper and lower case.
+In Example 1, a basic example of the flag is used. It determined how many times an upper case H appeared versus how many lower and upper case H's appeared.
+In Example 2, the flag could be used on a text file containing file names to determine how many files with a certain name appeared. In this case, many files began with an upper case L but only one began with a lower case l. The flag allowed for both types to be found. This can be helpful if the person searching is unsure if the files and/or directories contain lower case or upper case letters.
