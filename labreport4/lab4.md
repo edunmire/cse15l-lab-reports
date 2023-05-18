@@ -21,7 +21,7 @@ I got the ssh link for the repository.
 
 ![SSHLink](lab4_sshlink.jpg)
 
-Typed `git clone <Ctrl+V><enter>`. To paste copied link and clone it. Then, the confirmation that the repository was cloned appeared in the terminal.
+Typed `git clone <Ctrl+V><enter>` in order to paste copied link and clone it. Then, the confirmation that the repository was cloned appeared in the terminal.
 
 ![GitClone](lab4_gitclone.jpg)
 
