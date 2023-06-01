@@ -160,3 +160,7 @@ Contents of RunSearchEngine.sh
 javac SearchEngine.java Server.java
 java SearchEngine 4000
 ```
+
+To run the bug, I typed `bash RunSearchEngine.sh` in the terminal and then opened the server. I altered the URL to contain the query `/add-message?s=Hi Again` and received the "404 Not Found!" output.
+
+To fix the bug, change the if-statements `parameters[1].equals("_")` in SearchEngine.java to `parameters[0].equals("_")`. Then the if-statements will be comparing the right arguments.
