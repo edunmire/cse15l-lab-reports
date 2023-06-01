@@ -20,7 +20,7 @@ Date: 6/1/23
 
 Have you checked that the query is what you expect? Try placing a print line to see if the query and parameters contain what you're looking for.
 
-*Student Testing*
+*Student Response*
 
 ![printlines](printlines.jpg)
 
@@ -164,3 +164,7 @@ java SearchEngine 4000
 To run the bug, I typed `bash RunSearchEngine.sh` in the terminal and then opened the server. I altered the URL to contain the query `/add-message?s=Hi Again` and received the "404 Not Found!" output.
 
 To fix the bug, change the if-statements `parameters[1].equals("_")` in SearchEngine.java to `parameters[0].equals("_")`. Then the if-statements will be comparing the right arguments.
+
+**Reflection**
+
+I thought vim is really cool. I didn't know that you could edit files from the command line so learning that was really interesting. Although it does require learning new commands, it seems more useful than navigating on booting up and running a different program to do file edits if all you need to do are quick fixes code.
