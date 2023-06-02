@@ -29,6 +29,7 @@ Have you checked that the query is what you expect? Try placing a print line to 
 It seems that query and parameters contain what I expected. Based on this, it means that my variables are containing the correct information but my if-statement is not running correctly. I checked closer and realized I should be comparing `parameters[0]` instead of `parameters[1]` to the query.
 
 **Setup Of Student's Code**
+
 File/Directory Structure
 
 ```
@@ -167,4 +168,4 @@ To fix the bug, change the if-statements `parameters[1].equals("_")` in SearchEn
 
 **Reflection**
 
-I thought vim is really cool. I didn't know that you could edit files from the command line so learning that was really interesting. Although it does require learning new commands, it seems more useful than navigating on booting up and running a different program to do file edits if all you need to do are quick fixes code.
+I thought vim is really cool. I didn't know that you could edit files from the command line so learning that was interesting. Although it does require learning new commands, it seems more useful than booting up and running a different program to do file edits if all you need to do are quick fixes code.
